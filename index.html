@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🏮 Bài 1 — Từ vựng Hán ngữ | CN–Pinyin–VI–EN</title>
+  <meta name="description" content="Bài 1 từ vựng: chữ Hán, pinyin, nghĩa tiếng Việt, tiếng Anh và ví dụ minh hoạ. Triển khai dễ dàng trên GitHub Pages."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+SC:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b1020;      /* nền xanh đen */
+      --card: #121936;    /* card xanh tím */
+      --muted:#96a0c7;    /* chữ phụ */
+      --text:#e6ecff;     /* chữ chính */
+      --accent:#7c3aed;   /* tím */
+      --accent-2:#22d3ee; /* cyan */
+      --good:#16a34a;     /* xanh lá */
+      --warn:#f59e0b;     /* vàng */
+      --danger:#ef4444;   /* đỏ */
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 10px 30px rgba(20, 25, 55, .6), 0 4px 18px rgba(20, 25, 55, .35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color:var(--text); background: radial-gradient(1200px 600px at 10% -10%, #1a2352, transparent 60%),
+                         radial-gradient(1200px 600px at 110% 10%, #0b2a3e, transparent 50%),
+                         linear-gradient(180deg, #090d1c 0%, #0b1020 100%);
+      letter-spacing:.2px;
+    }
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(9,13,28,.75), rgba(9,13,28,.35));
+      border-bottom: 1px solid rgba(124,58,237,.25);
+    }
+    .container{max-width:1100px; margin:0 auto; padding: 18px 20px;}
+    .hero{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+    .logo{
+      width:48px; height:48px; border-radius:14px; display:grid; place-items:center; 
+      background: conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent));
+      box-shadow: 0 6px 16px rgba(124,58,237,.45);
+      font-size:24px;
+    }
+    h1{margin:0; font-weight:800; font-size: clamp(22px, 3.2vw, 30px);}
+    .sub{color:var(--muted); margin-top:4px; font-size:14px}
+
+    .toolbar{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .tool,.chip{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius: var(--radius-sm);
+      background: rgba(124,58,237,.16); border:1px solid rgba(124,58,237,.4); color:#e9e5ff;
+      cursor:pointer; user-select:none; transition: .2s transform, .2s background;
+    }
+    .tool:hover{transform: translateY(-1px); background: rgba(124,58,237,.24)}
+    .tool[data-active="false"]{opacity:.65; background: rgba(124,58,237,.1)}
+    .search{flex:1 1 260px; display:flex; align-items:center; gap:10px; background: rgba(255,255,255,.06);
+            border:1px solid rgba(255,255,255,.14); border-radius: var(--radius-sm); padding:10px 12px}
+    .search input{width:100%; background:transparent; outline:0; border:0; color:var(--text); font-size:14px}
+
+    main{padding:28px 20px}
+    .grid{max-width:1100px; margin:0 auto; display:grid; gap:16px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));}
+
+    .card{
+      border-radius: var(--radius); background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.09); padding:18px; box-shadow: var(--shadow);
+    }
+    .han{font-family: "Noto Sans SC", Inter, sans-serif; font-size: 36px; font-weight:700; letter-spacing:.5px}
+    .pinyin{color:#cfe8ff; font-weight:600; margin-top:4px}
+    .mean{margin-top:6px; font-size: 14px; color:#e6f9ff}
+    .flex-row{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .badge{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.18); color:#d7e0ff; background: rgba(255,255,255,.06)}
+
+    .ex{margin-top:12px; padding:12px; border-radius:12px; background: rgba(34,211,238,.1); border:1px dashed rgba(34,211,238,.35)}
+    .ex .cn{font-family:"Noto Sans SC", Inter, sans-serif; font-weight:600}
+    .ex .py{color:#bde7ff}
+    .ex .vi{color:#e0ffe0}
+    .ex .en{color:#ffe9bd}
+
+    .muted{color:var(--muted); font-size:12px}
+    .footer{color:var(--muted); text-align:center; padding:40px 20px; border-top:1px solid rgba(255,255,255,.08)}
+
+    .hide{display:none}
+
+    /* Print-friendly */
+    @media print{
+      header,.toolbar,.search{display:none !important}
+      body{background:#fff; color:#000}
+      .card{break-inside: avoid; box-shadow:none; border:1px solid #ddd}
+      .ex{border-color:#ddd; background:#fafafa}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="hero">
+        <div class="logo" aria-hidden>🏮</div>
+        <div>
+          <h1>Bài 1 — Từ vựng Hán ngữ</h1>
+          <div class="sub">CN · Pinyin · VI · EN · Ví dụ minh hoạ — Sẵn sàng deploy trên GitHub Pages</div>
+        </div>
+      </div>
+      <div class="toolbar" role="group" aria-label="Bộ công cụ hiển thị">
+        <label class="search" title="Tìm kiếm theo chữ, pinyin hoặc nghĩa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M21 21l-4.35-4.35" stroke="#c9d3ff" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="11" r="7" stroke="#c9d3ff" stroke-width="1.6"/></svg>
+          <input id="q" placeholder="Tìm: 你, nǐ, bạn, hello..." />
+        </label>
+        <button id="t-py" class="tool" data-active="true">Pinyin</button>
+        <button id="t-vi" class="tool" data-active="true">Tiếng Việt</button>
+        <button id="t-en" class="tool" data-active="true">English</button>
+        <button id="t-ex" class="tool" data-active="true">Ví dụ</button>
+        <span class="chip" title="Số mục hiển thị"><strong id="count">0</strong>&nbsp;mục</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </main>
+
+  <footer class="footer">
+    <div>Made with ❤ for learners. Gợi ý deploy: tạo repo <code>your-username.github.io</code> · Settings → Pages → Branch: <code>main</code>.</div>
+  </footer>
+
+  <script>
+    // ======= Data =======
+    const ITEMS = [
+      {
+        han: "你", py: "nǐ", vi: "bạn", en: "you",
+        ex: { cn: "你好吗？", py: "nǐ hǎo ma?", vi: "Bạn khỏe không?", en: "How are you?" }
+      },
+      {
+        han: "好", py: "hǎo", vi: "tốt", en: "good",
+        ex: { cn: "我很好。", py: "wǒ hěn hǎo.", vi: "Tôi rất tốt.", en: "I'm fine." }
+      },
+      {
+        han: "你好", py: "nǐ hǎo", vi: "xin chào", en: "hello",
+        ex: { cn: "你好！", py: "nǐ hǎo!", vi: "Xin chào!", en: "Hello!" }
+      },
+      {
+        han: "一", py: "yī", vi: "một", en: "one",
+        ex: { cn: "我有一个朋友。", py: "wǒ yǒu yí gè péngyou.", vi: "Tôi có một người bạn.", en: "I have one friend." }
+      },
+      {
+        han: "五", py: "wǔ", vi: "năm", en: "five",
+        ex: { cn: "我家有五口人。", py: "wǒ jiā yǒu wǔ kǒu rén.", vi: "Nhà tôi có năm người.", en: "There are five people in my family." }
+      },
+      {
+        han: "八", py: "bā", vi: "tám", en: "eight",
+        ex: { cn: "他八岁。", py: "tā bā suì.", vi: "Cậu ấy tám tuổi.", en: "He is eight years old." }
+      },
+      {
+        han: "大", py: "dà", vi: "to, lớn", en: "big",
+        ex: { cn: "这只狗很大。", py: "zhè zhī gǒu hěn dà.", vi: "Con chó này rất to.", en: "This dog is big." }
+      },
+      {
+        han: "不", py: "bù", vi: "không", en: "not",
+        ex: { cn: "我不是老师。", py: "wǒ bú shì lǎoshī.", vi: "Tôi không phải là giáo viên.", en: "I'm not a teacher." }
+      },
+      {
+        han: "口", py: "kǒu", vi: "miệng; lượng từ (người trong nhà)", en: "mouth; classifier for family members",
+        ex: { cn: "我们家有三口人。", py: "wǒmen jiā yǒu sān kǒu rén.", vi: "Nhà chúng tôi có ba người.", en: "There are three people in our family." }
+      },
+      {
+        han: "白", py: "bái", vi: "trắng", en: "white",
+        ex: { cn: "白云在天上。", py: "bái yún zài tiān shang.", vi: "Mây trắng ở trên trời.", en: "White clouds are in the sky." }
+      },
+      {
+        han: "女", py: "nǚ", vi: "phụ nữ", en: "female; woman",
+        ex: { cn: "她是女学生。", py: "tā shì nǚ xuéshēng.", vi: "Cô ấy là nữ sinh.", en: "She is a female student." }
+      },
+      {
+        han: "马", py: "mǎ", vi: "ngựa", en: "horse",
+        ex: { cn: "我喜欢马。", py: "wǒ xǐhuan mǎ.", vi: "Tôi thích ngựa.", en: "I like horses." }
+      }
+    ];
+
+    // ======= State =======
+    const state = { showPy:true, showVi:true, showEn:true, showEx:true, q:"" };
+
+    // ======= Elements =======
+    const grid = document.getElementById('grid');
+    const q = document.getElementById('q');
+    const btnPy = document.getElementById('t-py');
+    const btnVi = document.getElementById('t-vi');
+    const btnEn = document.getElementById('t-en');
+    const btnEx = document.getElementById('t-ex');
+    const count = document.getElementById('count');
+
+    function normal(s){return (s||"").toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'');}
+
+    function render(){
+      grid.innerHTML = '';
+      const qn = normal(state.q);
+      const filtered = ITEMS.filter(it => {
+        const target = [it.han, it.py, it.vi, it.en, it.ex.cn, it.ex.py, it.ex.vi, it.ex.en].join(' | ');
+        return normal(target).includes(qn);
+      });
+
+      filtered.forEach(it => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="flex-row">
+            <div>
+              <div class="han" aria-label="Chinese">${it.han}</div>
+              <div class="pinyin ${state.showPy? '': 'hide'}">/${it.py}/</div>
+              <div class="mean ${state.showVi? '': 'hide'}">VI: ${it.vi}</div>
+              <div class="mean ${state.showEn? '': 'hide'} muted">EN: ${it.en}</div>
+            </div>
+            <span class="badge" title="Bấm để sao chép" role="button" tabindex="0">Sao chép</span>
+          </div>
+          <div class="ex ${state.showEx? '': 'hide'}">
+            <div class="cn">👉 例句：${it.ex.cn}</div>
+            <div class="py">/${it.ex.py}/</div>
+            <div class="vi">${it.ex.vi}</div>
+            <div class="en">${it.ex.en}</div>
+          </div>
+        `;
+        // Copy handler
+        card.querySelector('.badge').addEventListener('click', () => {
+          const text = `${it.han} /${it.py}/ — ${it.vi} / ${it.en}\n例句：${it.ex.cn} /${it.ex.py}/ — ${it.ex.vi} / ${it.ex.en}`;
+          navigator.clipboard.writeText(text).then(()=>{
+            const b = card.querySelector('.badge');
+            const old = b.textContent; b.textContent='✓ Đã chép'; b.style.borderColor='rgba(34,211,238,.8)';
+            setTimeout(()=>{b.textContent=old; b.style.borderColor='rgba(255,255,255,.18)';}, 1200);
+          });
+        });
+        grid.appendChild(card);
+      });
+      count.textContent = filtered.length;
+    }
+
+    // ======= Events =======
+    q.addEventListener('input', e => {state.q = e.target.value; render();});
+    function toggle(btn, key){
+      state[key] = !state[key];
+      btn.dataset.active = String(state[key]);
+      render();
+    }
+    btnPy.addEventListener('click', ()=> toggle(btnPy, 'showPy'));
+    btnVi.addEventListener('click', ()=> toggle(btnVi, 'showVi'));
+    btnEn.addEventListener('click', ()=> toggle(btnEn, 'showEn'));
+    btnEx.addEventListener('click', ()=> toggle(btnEx, 'showEx'));
+
+    // ======= Init =======
+    render();
+  </script>
+</body>
+</html>
