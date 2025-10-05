@@ -115,8 +115,102 @@
   <script>
     // ======= Data (Bài 1–5) =======
     const ITEMS = [
-      /* ... (toàn bộ danh sách bài 1–5 đã có của bạn – giữ nguyên như hiện trong file của bạn) ... */
-      // (Để đầy đủ, mình giữ nguyên y hệt nội dung bạn đang dùng; nếu bạn cần mình có thể gửi lại toàn bộ mảng.)
+      // ==== Bài 1 ====
+      { han: "你", py: "nǐ", vi: "bạn", en: "you", ex: { cn: "你好吗？", py: "nǐ hǎo ma?", vi: "Bạn khỏe không?", en: "How are you?" } },
+      { han: "好", py: "hǎo", vi: "tốt", en: "good", ex: { cn: "我很好。", py: "wǒ hěn hǎo.", vi: "Tôi rất tốt.", en: "I'm fine." } },
+      { han: "你好", py: "nǐ hǎo", vi: "xin chào", en: "hello", ex: { cn: "你好！", py: "nǐ hǎo!", vi: "Xin chào!", en: "Hello!" } },
+      { han: "一", py: "yī", vi: "một", en: "one", ex: { cn: "我有一个朋友。", py: "wǒ yǒu yí gè péngyou.", vi: "Tôi có một người bạn.", en: "I have one friend." } },
+      { han: "五", py: "wǔ", vi: "năm", en: "five", ex: { cn: "我家有五口人。", py: "wǒ jiā yǒu wǔ kǒu rén.", vi: "Nhà chúng tôi có năm người.", en: "There are five people in our family." } },
+      { han: "八", py: "bā", vi: "tám", en: "eight", ex: { cn: "他八岁。", py: "tā bā suì.", vi: "Cậu ấy tám tuổi.", en: "He is eight years old." } },
+      { han: "大", py: "dà", vi: "to, lớn", en: "big", ex: { cn: "这只狗很大。", py: "zhè zhī gǒu hěn dà.", vi: "Con chó này rất to.", en: "This dog is big." } },
+      { han: "不", py: "bù", vi: "không", en: "not", ex: { cn: "我不是老师。", py: "wǒ bú shì lǎoshī.", vi: "Tôi không phải là giáo viên.", en: "I'm not a teacher." } },
+      { han: "口", py: "kǒu", vi: "miệng; lượng từ (người trong nhà)", en: "mouth; classifier for family members", ex: { cn: "我们家有三口人。", py: "wǒmen jiā yǒu sān kǒu rén.", vi: "Nhà chúng tôi có ba người.", en: "There are three people in our family." } },
+      { han: "白", py: "bái", vi: "trắng", en: "white", ex: { cn: "白云在天上。", py: "bái yún zài tiān shang.", vi: "Mây trắng ở trên trời.", en: "White clouds are in the sky." } },
+      { han: "女", py: "nǚ", vi: "phụ nữ", en: "female; woman", ex: { cn: "她是女学生。", py: "tā shì nǚ xuéshēng.", vi: "Cô ấy là nữ sinh.", en: "She is a female student." } },
+      { han: "马", py: "mǎ", vi: "ngựa", en: "horse", ex: { cn: "我喜欢马。", py: "wǒ xǐhuan mǎ.", vi: "Tôi thích ngựa.", en: "I like horses." } },
+
+      // ==== Bài 2 ====
+      { han: "忙", py: "máng", vi: "bận", en: "busy", ex: { cn: "你忙吗？", py: "nǐ máng ma?", vi: "Bạn bận không?", en: "Are you busy?" } },
+      { han: "吗", py: "ma", vi: "trợ từ nghi vấn", en: "question particle", ex: { cn: "你好吗？", py: "nǐ hǎo ma?", vi: "Bạn khỏe không?", en: "How are you?" } },
+      { han: "很", py: "hěn", vi: "rất", en: "very", ex: { cn: "我很好。", py: "wǒ hěn hǎo.", vi: "Tôi rất tốt.", en: "I'm very well." } },
+      { han: "汉语", py: "Hànyǔ", vi: "tiếng Hán", en: "Chinese language", ex: { cn: "我学汉语。", py: "wǒ xué Hànyǔ.", vi: "Tôi học tiếng Hán.", en: "I study Chinese." } },
+      { han: "难", py: "nán", vi: "khó", en: "difficult", ex: { cn: "汉语不难。", py: "Hànyǔ bù nán.", vi: "Tiếng Hán không khó.", en: "Chinese is not difficult." } },
+      { han: "太", py: "tài", vi: "quá", en: "too; overly", ex: { cn: "太好了！", py: "tài hǎo le!", vi: "Tuyệt quá!", en: "Great!" } },
+      { han: "爸爸", py: "bàba", vi: "cha", en: "dad", ex: { cn: "我爸爸是老师。", py: "wǒ bàba shì lǎoshī.", vi: "Bố tôi là giáo viên.", en: "My dad is a teacher." } },
+      { han: "妈妈", py: "māma", vi: "mẹ", en: "mum", ex: { cn: "我妈妈很漂亮。", py: "wǒ māma hěn piàoliang.", vi: "Mẹ tôi rất đẹp.", en: "My mom is beautiful." } },
+      { han: "他", py: "tā", vi: "anh ấy", en: "he", ex: { cn: "他是学生。", py: "tā shì xuéshēng.", vi: "Anh ấy là học sinh.", en: "He is a student." } },
+      { han: "她", py: "tā", vi: "cô ấy", en: "she", ex: { cn: "她很好。", py: "tā hěn hǎo.", vi: "Cô ấy rất tốt.", en: "She is fine." } },
+      { han: "男", py: "nán", vi: "nam", en: "male", ex: { cn: "他是男老师。", py: "tā shì nán lǎoshī.", vi: "Anh ấy là giáo viên nam.", en: "He is a male teacher." } },
+      { han: "哥哥", py: "gēge", vi: "anh trai", en: "elder brother", ex: { cn: "我有一个哥哥。", py: "wǒ yǒu yí gè gēge.", vi: "Tôi có một anh trai.", en: "I have an elder brother." } },
+      { han: "弟弟", py: "dìdi", vi: "em trai", en: "younger brother", ex: { cn: "弟弟很可爱。", py: "dìdi hěn kě'ài.", vi: "Em trai rất dễ thương.", en: "My younger brother is cute." } },
+      { han: "妹妹", py: "mèimei", vi: "em gái", en: "younger sister", ex: { cn: "妹妹在家。", py: "mèimei zài jiā.", vi: "Em gái ở nhà.", en: "Younger sister is at home." } },
+
+      // ==== Bài 3 ====
+      { han: "学", py: "xué", vi: "học", en: "to learn; to study", ex: { cn: "我学汉语。", py: "wǒ xué Hànyǔ.", vi: "Tôi học tiếng Hán.", en: "I study Chinese." } },
+      { han: "英语", py: "Yīngyǔ", vi: "tiếng Anh", en: "English (language)", ex: { cn: "他学英语。", py: "tā xué Yīngyǔ.", vi: "Anh ấy học tiếng Anh.", en: "He studies English." } },
+      { han: "阿拉伯语", py: "Ālābóyǔ", vi: "tiếng Ả Rập", en: "Arabic (language)", ex: { cn: "他会说阿拉伯语。", py: "tā huì shuō Ālābóyǔ.", vi: "Anh ấy biết nói tiếng Ả Rập.", en: "He can speak Arabic." } },
+      { han: "德语", py: "Déyǔ", vi: "tiếng Đức", en: "German (language)", ex: { cn: "我想学德语。", py: "wǒ xiǎng xué Déyǔ.", vi: "Tôi muốn học tiếng Đức.", en: "I want to learn German." } },
+      { han: "俄语", py: "Éyǔ", vi: "tiếng Nga", en: "Russian (language)", ex: { cn: "她会说俄语。", py: "tā huì shuō Éyǔ.", vi: "Cô ấy biết nói tiếng Nga.", en: "She can speak Russian." } },
+      { han: "法语", py: "Fǎyǔ", vi: "tiếng Pháp", en: "French (language)", ex: { cn: "我姐姐学法语。", py: "wǒ jiějie xué Fǎyǔ.", vi: "Chị tôi học tiếng Pháp.", en: "My sister studies French." } },
+      { han: "韩语", py: "Hánguóyǔ", vi: "tiếng Hàn", en: "Korean (language)", ex: { cn: "你学韩语吗？", py: "nǐ xué Hánguóyǔ ma?", vi: "Bạn học tiếng Hàn à?", en: "Do you study Korean?" } },
+      { han: "日语", py: "Rìyǔ", vi: "tiếng Nhật", en: "Japanese (language)", ex: { cn: "我朋友会说日语。", py: "wǒ péngyou huì shuō Rìyǔ.", vi: "Bạn tôi biết nói tiếng Nhật.", en: "My friend can speak Japanese." } },
+      { han: "西班牙语", py: "Xībānyáyǔ", vi: "tiếng Tây Ban Nha", en: "Spanish (language)", ex: { cn: "他在学西班牙语。", py: "tā zài xué Xībānyáyǔ.", vi: "Anh ấy đang học tiếng Tây Ban Nha.", en: "He is studying Spanish." } },
+      { han: "对", py: "duì", vi: "đúng", en: "right; correct", ex: { cn: "你说得对。", py: "nǐ shuō de duì.", vi: "Bạn nói đúng.", en: "You are right." } },
+      { han: "明天", py: "míngtiān", vi: "ngày mai", en: "tomorrow", ex: { cn: "明天见。", py: "míngtiān jiàn.", vi: "Hẹn gặp ngày mai.", en: "See you tomorrow." } },
+      { han: "见", py: "jiàn", vi: "gặp", en: "to see", ex: { cn: "我见他了。", py: "wǒ jiàn tā le.", vi: "Tôi đã gặp anh ấy.", en: "I met him." } },
+      { han: "去", py: "qù", vi: "đi", en: "to go", ex: { cn: "我去学校。", py: "wǒ qù xuéxiào.", vi: "Tôi đi học.", en: "I go to school." } },
+      { han: "邮局", py: "yóujú", vi: "bưu điện", en: "post office", ex: { cn: "邮局在那儿。", py: "yóujú zài nàr.", vi: "Bưu điện ở đằng kia.", en: "The post office is over there." } },
+      { han: "寄", py: "jì", vi: "gửi", en: "to send; to mail", ex: { cn: "我去邮局寄信。", py: "wǒ qù yóujú jì xìn.", vi: "Tôi đi bưu điện gửi thư.", en: "I go to the post office to send a letter." } },
+      { han: "信", py: "xìn", vi: "thư", en: "letter; mail", ex: { cn: "我写信给你。", py: "wǒ xiě xìn gěi nǐ.", vi: "Tôi viết thư cho bạn.", en: "I write a letter to you." } },
+      { han: "银行", py: "yínháng", vi: "ngân hàng", en: "bank", ex: { cn: "我去银行取钱。", py: "wǒ qù yínháng qǔ qián.", vi: "Tôi đi ngân hàng rút tiền.", en: "I go to the bank to withdraw money." } },
+      { han: "取", py: "qǔ", vi: "rút, lấy", en: "to draw; to take", ex: { cn: "我取了五百块。", py: "wǒ qǔ le wǔ bǎi kuài.", vi: "Tôi rút năm trăm tệ.", en: "I withdrew 500 yuan." } },
+      { han: "钱", py: "qián", vi: "tiền", en: "money", ex: { cn: "他有很多钱。", py: "tā yǒu hěn duō qián.", vi: "Anh ấy có nhiều tiền.", en: "He has a lot of money." } },
+      { han: "六", py: "liù", vi: "sáu", en: "six", ex: { cn: "我有六支笔。", py: "wǒ yǒu liù zhī bǐ.", vi: "Tôi có sáu cây bút.", en: "I have six pens." } },
+      { han: "七", py: "qī", vi: "bảy", en: "seven", ex: { cn: "我们七点见。", py: "wǒmen qī diǎn jiàn.", vi: "Chúng ta gặp lúc bảy giờ.", en: "See you at seven." } },
+      { han: "九", py: "jiǔ", vi: "chín", en: "nine", ex: { cn: "现在九点。", py: "xiànzài jiǔ diǎn.", vi: "Bây giờ là chín giờ.", en: "It is nine o'clock." } },
+
+      // ==== Bài 4 ====
+      { han: "今天", py: "jīntiān", vi: "hôm nay", en: "today", ex: { cn: "今天是星期一。", py: "jīntiān shì xīngqī yī.", vi: "Hôm nay là thứ hai.", en: "Today is Monday." } },
+      { han: "昨天", py: "zuótiān", vi: "hôm qua", en: "yesterday", ex: { cn: "昨天我去学校。", py: "zuótiān wǒ qù xuéxiào.", vi: "Hôm qua tôi đi học.", en: "I went to school yesterday." } },
+      { han: "星期", py: "xīngqī", vi: "tuần", en: "week", ex: { cn: "一个星期七天。", py: "yí gè xīngqī qī tiān.", vi: "Một tuần có bảy ngày.", en: "A week has seven days." } },
+      { han: "星期一", py: "xīngqī yī", vi: "thứ hai", en: "Monday", ex: { cn: "今天是星期一。", py: "jīntiān shì xīngqī yī.", vi: "Hôm nay là thứ hai.", en: "Today is Monday." } },
+      { han: "星期二", py: "xīngqī èr", vi: "thứ ba", en: "Tuesday", ex: { cn: "明天是星期二。", py: "míngtiān shì xīngqī èr.", vi: "Ngày mai là thứ ba.", en: "Tomorrow is Tuesday." } },
+      { han: "星期三", py: "xīngqī sān", vi: "thứ tư", en: "Wednesday", ex: { cn: "今天星期三。", py: "jīntiān xīngqī sān.", vi: "Hôm nay thứ tư.", en: "Today is Wednesday." } },
+      { han: "星期四", py: "xīngqī sì", vi: "thứ năm", en: "Thursday", ex: { cn: "星期四我有课。", py: "xīngqī sì wǒ yǒu kè.", vi: "Thứ năm tôi có tiết học.", en: "I have class on Thursday." } },
+      { han: "星期五", py: "xīngqī wǔ", vi: "thứ sáu", en: "Friday", ex: { cn: "星期五见！", py: "xīngqī wǔ jiàn!", vi: "Hẹn gặp thứ sáu!", en: "See you Friday!" } },
+      { han: "星期六", py: "xīngqī liù", vi: "thứ bảy", en: "Saturday", ex: { cn: "星期六休息。", py: "xīngqī liù xiūxi.", vi: "Thứ bảy nghỉ ngơi.", en: "Rest on Saturday." } },
+      { han: "星期天", py: "xīngqī tiān", vi: "chủ nhật", en: "Sunday", ex: { cn: "星期天去公园。", py: "xīngqī tiān qù gōngyuán.", vi: "Chủ nhật đi công viên.", en: "Go to the park on Sunday." } },
+      { han: "几", py: "jǐ", vi: "mấy; bao nhiêu", en: "how many; several", ex: { cn: "你几岁？", py: "nǐ jǐ suì?", vi: "Bạn mấy tuổi?", en: "How old are you?" } },
+      { han: "二", py: "èr", vi: "hai", en: "two", ex: { cn: "现在二点。", py: "xiànzài èr diǎn.", vi: "Bây giờ hai giờ.", en: "It's two o'clock." } },
+      { han: "三", py: "sān", vi: "ba", en: "three", ex: { cn: "我有三本书。", py: "wǒ yǒu sān běn shū.", vi: "Tôi có ba quyển sách.", en: "I have three books." } },
+      { han: "四", py: "sì", vi: "bốn", en: "four", ex: { cn: "他有四个苹果。", py: "tā yǒu sì gè píngguǒ.", vi: "Anh ấy có bốn quả táo.", en: "He has four apples." } },
+      { han: "哪儿", py: "nǎr", vi: "ở đâu", en: "where", ex: { cn: "你去哪儿？", py: "nǐ qù nǎr?", vi: "Bạn đi đâu?", en: "Where are you going?" } },
+      { han: "那儿", py: "nàr", vi: "ở kia", en: "there", ex: { cn: "银行在那儿。", py: "yínháng zài nàr.", vi: "Ngân hàng ở kia.", en: "The bank is over there." } },
+      { han: "我", py: "wǒ", vi: "tôi", en: "I; me", ex: { cn: "我是学生。", py: "wǒ shì xuéshēng.", vi: "Tôi là học sinh.", en: "I am a student." } },
+      { han: "回", py: "huí", vi: "về", en: "to go back", ex: { cn: "我回家。", py: "wǒ huí jiā.", vi: "Tôi về nhà.", en: "I go home." } },
+      { han: "学校", py: "xuéxiào", vi: "trường học", en: "school", ex: { cn: "我们学校很大。", py: "wǒmen xuéxiào hěn dà.", vi: "Trường chúng tôi rất lớn.", en: "Our school is big." } },
+      { han: "再见", py: "zàijiàn", vi: "tạm biệt", en: "goodbye", ex: { cn: "老师，再见！", py: "lǎoshī, zàijiàn!", vi: "Thầy ơi, tạm biệt!", en: "Goodbye, teacher!" } },
+      { han: "对不起", py: "duìbuqǐ", vi: "xin lỗi", en: "sorry", ex: { cn: "对不起！", py: "duìbuqǐ!", vi: "Xin lỗi!", en: "Sorry!" } },
+      { han: "没关系", py: "méi guānxi", vi: "không sao", en: "it's okay; no problem", ex: { cn: "没关系。", py: "méi guānxi.", vi: "Không sao đâu.", en: "It's okay." } },
+
+      // ==== Bài 5 ====
+      { han: "这", py: "zhè", vi: "cái này", en: "this", ex: { cn: "这是谁？", py: "zhè shì shuí?", vi: "Đây là ai?", en: "Who is this?" } },
+      { han: "是", py: "shì", vi: "là", en: "to be (am, is, are)", ex: { cn: "我是老师。", py: "wǒ shì lǎoshī.", vi: "Tôi là giáo viên.", en: "I am a teacher." } },
+      { han: "老师", py: "lǎoshī", vi: "giáo viên", en: "teacher", ex: { cn: "他是我们的老师。", py: "tā shì wǒmen de lǎoshī.", vi: "Anh ấy là thầy của chúng tôi.", en: "He is our teacher." } },
+      { han: "您", py: "nín", vi: "ngài (kính ngữ của 你)", en: "you (polite form)", ex: { cn: "您好吗？", py: "nín hǎo ma?", vi: "Ngài khỏe không?", en: "How are you (polite)?" } },
+      { han: "请", py: "qǐng", vi: "mời", en: "please", ex: { cn: "请进。", py: "qǐng jìn.", vi: "Mời vào.", en: "Please come in." } },
+      { han: "进", py: "jìn", vi: "vào", en: "to enter", ex: { cn: "他进来了。", py: "tā jìn lái le.", vi: "Anh ấy đã vào rồi.", en: "He has come in." } },
+      { han: "坐", py: "zuò", vi: "ngồi", en: "to sit", ex: { cn: "请坐。", py: "qǐng zuò.", vi: "Mời ngồi.", en: "Please sit." } },
+      { han: "喝", py: "hē", vi: "uống", en: "to drink", ex: { cn: "请喝茶。", py: "qǐng hē chá.", vi: "Mời uống trà.", en: "Please have some tea." } },
+      { han: "茶", py: "chá", vi: "trà", en: "tea", ex: { cn: "我喜欢喝茶。", py: "wǒ xǐhuan hē chá.", vi: "Tôi thích uống trà.", en: "I like tea." } },
+      { han: "谢谢", py: "xièxie", vi: "cảm ơn", en: "thank you", ex: { cn: "谢谢你。", py: "xièxie nǐ.", vi: "Cảm ơn bạn.", en: "Thank you." } },
+      { han: "不客气", py: "bú kèqi", vi: "không có gì", en: "you're welcome", ex: { cn: "不客气！", py: "bú kèqi!", vi: "Không có gì!", en: "You're welcome!" } },
+      { han: "客气", py: "kèqi", vi: "khách sáo", en: "polite; courteous", ex: { cn: "不要客气。", py: "bú yào kèqi.", vi: "Đừng khách sáo.", en: "Don't be so polite." } },
+      { han: "工作", py: "gōngzuò", vi: "công việc", en: "work; job", ex: { cn: "你工作忙吗？", py: "nǐ gōngzuò máng ma?", vi: "Bạn có bận công việc không?", en: "Are you busy with work?" } },
+      { han: "身体", py: "shēntǐ", vi: "cơ thể; sức khỏe", en: "body; health", ex: { cn: "你身体好吗？", py: "nǐ shēntǐ hǎo ma?", vi: "Sức khỏe bạn tốt chứ?", en: "How is your health?" } },
+      { han: "十", py: "shí", vi: "mười", en: "ten", ex: { cn: "我有十块钱。", py: "wǒ yǒu shí kuài qián.", vi: "Tôi có mười đồng.", en: "I have ten yuan." } },
+      { han: "日", py: "rì", vi: "ngày", en: "day; sun", ex: { cn: "今天是几月几日？", py: "jīntiān shì jǐ yuè jǐ rì?", vi: "Hôm nay là ngày mấy tháng mấy?", en: "What's the date today?" } },
+      { han: "王", py: "Wáng", vi: "họ Vương", en: "Wang (a family name)", ex: { cn: "他姓王。", py: "tā xìng Wáng.", vi: "Anh ấy họ Vương.", en: "His surname is Wang." } }
     ];
 
     // ======= State =======
@@ -157,7 +251,11 @@
     tts.ensureVoice();
     window.speechSynthesis.onvoiceschanged = () => tts.ensureVoice();
 
-    function normal(s){return (s||"").toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'');}
+    // Safe diacritic stripping (broad browser support)
+    function normal(s){
+      return (s||"").toLowerCase().normalize('NFD')
+        .replace(/[\u0300-\u036f]/g,''); // remove common combining marks
+    }
 
     function render(){
       grid.innerHTML = '';
