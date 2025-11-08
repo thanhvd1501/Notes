@@ -1,8 +1,3 @@
-# 📋 Tài Liệu Q&A - Travel Chat Bot AI
-## Câu Hỏi Thường Gặp Khi Thuyết Trình
-
----
-
 ## 🔧 1. THÔNG SỐ LLM & GENERATION
 
 ### **Q1: Temperature là bao nhiêu? Tại sao chọn giá trị đó?**
@@ -701,4 +696,5 @@
 ---
 
 **Chúc bạn thuyết trình thành công! 🎉**
+
 
